@@ -1,0 +1,18 @@
+{{- if strings.HasPrefix .Destination "http:" -}}
+<img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title }} title="{{ . }}"{{ end }} />
+
+{{- else if strings.HasPrefix .Destination "https:" -}}
+<img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title }} title="{{ . }}"{{ end }} />
+
+{{- else if strings.HasPrefix .Destination "/" -}}
+{{ $destination := printf "%s%s" .Page.Site.BaseURL .Destination }}
+<img src="{{ $destination | safeURL }}" alt="{{ .Text }}" {{ with .Title }} title="{{ . }}"{{ end }} />
+
+{{- else if .Page.BundleType -}}
+<img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title }} title="{{ . }}"{{ end }} />
+
+{{- else -}}
+{{ $destination := printf "../%s" .Destination }}
+<img src="{{ $destination | safeURL }}" alt="{{ .Text }}" {{ with .Title }} title="{{ . }}"{{ end }} />
+
+{{- end -}}

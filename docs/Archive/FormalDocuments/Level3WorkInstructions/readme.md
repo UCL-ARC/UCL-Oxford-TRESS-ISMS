@@ -1,0 +1,1 @@
+Level 3. Work instructions that set out how employees implement individual elements of the procedures. For example, a procedure may refer to a specific piece of equipment or software to use, which a work instruction can explain in more detail how to operate. 	

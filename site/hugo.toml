@@ -1,0 +1,17 @@
+baseURL = '/'
+languageCode = 'en'
+title = 'UCL Research Data ISMS'
+theme = 'hugo-book'
+
+[params]
+BookSection = '*'
+BookTheme = 'light'
+BookRepo = ''
+BookSearch = true
+BookComments = false
+
+[module]
+[[module.mounts]]
+source = 'content'
+target = 'content'
+excludeFiles = ['**/README.md']

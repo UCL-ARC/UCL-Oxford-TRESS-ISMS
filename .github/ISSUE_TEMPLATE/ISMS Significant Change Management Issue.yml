@@ -1,0 +1,217 @@
+---
+name: ISMS Significant Change
+description: >-
+  This template supports the ISMS Change and Configuration Management, so modifications do not introduce new security risks and configurations remain secure.
+title: "[ISMS Significant Non-Standard Change] <title>"
+labels: ["ISMS Significant Change"]
+body: |
+  [!NOTE]
+  Further information and key documentation:
+  [RISM08 Change Management Policy](https://isms.arc.ucl.ac.uk/rism08-change_management_policy/)
+  [RISM04 Risk Assessment and Treatment Procedure](https://isms.arc.ucl.ac.uk/rism04-risk_assessment_and_treatment_procedure/)
+  [RISM12 Environment Definition](https://isms.arc.ucl.ac.uk/rism12-environment_definition/)
+  [RISM18 GitOps Procedure](https://isms.arc.ucl.ac.uk/rism18-gitops_procedure/)
+
+  [!TIP]
+  Use this template for significant [Normal or Emergency Changes](https://isms.arc.ucl.ac.uk/rism08-change_management_policy/#4-change-types) to the ISMS or to environments within its scope.  
+  A significant change is any planned or unplanned modification that could materially affect the information-security risk posture. This includes technical, procedural, or architectural changes—for example, updates to critical systems, policies, infrastructure, or responsibilities. 
+  These changes are typically identified as having a **High** or **Very High** impact rating and require formal ISMS assessment, oversight, and approval by the [ISMS Operational Management Group (OMG)](https://isms.arc.ucl.ac.uk/rism11-operational_management_group_tor/). 
+  OMG ensures the ISMS is operating effectively, delivering security objectives, and managing information risks within tolerance.  
+  Risks that cannot be resolved by OMG may be escalated to the [UCL Information Risk Governance Committee (IRGC)](https://isms.arc.ucl.ac.uk/rism02-roles_and_responsibilities/#31-top-management).  
+  Arrangements for OMG and IRGC are coordinated through the [ISMS Research Information Governance (IG) Lead](https://isms.arc.ucl.ac.uk/rism02-roles_and_responsibilities/#8roles-catalogue).
+
+sections:
+  - id: guidance
+    type: markdown
+    attributes:
+      value: >-
+        [^1]: Delete the comments (`<!-- formatted like this -->`) when entering text in the table cells below.
+
+  - id: ISMSChangePurpose
+    type: input
+    attributes:
+      label: 1.0 - Purpose
+      description: >-
+        What is the reason for the change?
+    validations:
+      required: true
+
+  - id: ISMSChangeScope
+    type: textarea
+    attributes:
+      label: 2.0 - Scope
+      description: >-
+        What services, processes, environment or component will change?
+    validations:
+      required: true
+
+  - id: ISMSChangeImpact
+    type: textarea
+    attributes:
+      label: 3.0 - Impact
+      description: >-
+        How will this affect the users and/or the ISMS and/or UCL?
+    validations:
+      required: true
+
+  - id: ISMSChangeRisk
+    type: textarea
+    attributes:
+      label: 4.0 - Risk Assessment
+      description: |-
+        Details of how the change impacts the ISMS Risk Scenarios associated with the loss of confidentiality, integrity or availability of data. This is informed by the environment/emergent risk(s) and associated impact to risk treatment (detailed in Appendix I below). Details of Likelihood, Impact and Risk Level found in the UCL [Information Risk Assessment Likelihood and Impact Ratings](https://liveuclac.sharepoint.com/sites/ISD.InformationSecurityGroup/Team%20Documents/Risk/Information-Risk-Assessment-Likelihood-and-Impact-Ratings-v1-01.pdf) The current ISMS Risk Scenarios and Risk Statement after risk treatment is below:
+
+        | Risk | Impact | Likelihood | Risk Level |
+        | :-- | :-- | :-- | :-- |
+        | User deliberately or accidentally leaks information | 4 _High_ | 3 _Medium_ | 16 **Severe** |
+        | User accidentally or deliberately damages information | 2 _Low_ | 3 _Medium_ | 8 **Manageable** |
+        | Premises Break-in | 4 _High_ | 2 _Low_ | 12 **Manageable** |
+        | Acts of God, Vandals and Terrorists | 2 _Low_ | 3 _Medium_ | 8 **Manageable** |
+        | Theft or loss of mobile devices | 1 _Very Low_ | 1 _Very Low_ | 2 **Manageable** |
+        | Software failure | 4 _High_ | 2 _Low_ | 12 **Manageable** |
+        | Hardware or infrastructure Failures | 3 _Medium_ | 2 _Low_ | 9 **Manageable** |
+        | Power Failure | 2 _Low_ | 2 _Low_ | 6 **Manageable** |
+        | Internet or Communications Failure | 3 _Medium_ | 2 _Low_ | 9 **Manageable** |
+        | Hacking | 4 _High_ | 2 _Low_ | 12 **Manageable** |
+        | Denial of Service | 3 _Medium_ | 3 _Medium_ | 12 **Manageable** |
+
+      value: |-
+        | Risk scenario | Impact | Likelihood | Risk Level | Proposed additional controls, notes and comments |
+        | :-- | :-- | :-- | :-- | :-- |
+        | <!-- Guidance row, delete this row once the table is completed --> | <!-- Rating of 1 - 5 --> | <!-- Rating of 1 - 5 --> |  <!-- Impact x Likelihood + Impact --> | <!-- details of environment/emergent risk and treatment --> |
+        | User deliberately or accidentally leaks information  |  |  |  |  |
+        | User accidentally or deliberately damages information  |  |  |  |  |
+        | Premises break-in  |  |  |  |  |
+        | Acts of God, vandals, and terrorists  |  |  |  |  |
+        | Theft or loss of mobile devices  |  |  |  |  |
+        | Software failure  |  |  |  |  |
+        | Hardware or infrastructure failure  |  |  |  |  |
+        | Power failure  |  |  |  |  |
+        | Internet or communications failure  |  |  |  |  |
+        | Hacking, brute-force, malicious code, spam, phishing, targeted  |  |  |  |  |
+        | Denial of Service  |  |  |  |  |
+        | Other scenario not adequately described above  |  |  |  | 
+
+    validations:
+      required: false
+
+  - id: ISMSChangeSchedule
+    type: input
+    attributes:
+      label: 5.0 - Schedule
+      description: >-
+        When will the change happen?
+    validations:
+      required: false
+
+  - id: ISMSChangeTestPlan
+    type: textarea
+    attributes:
+      label: 6.0 - Test plan
+      description: >-
+        What is the test plan pre and post change? 
+      placeholder: >-
+        Please detail here, or may be a link to test plan documentation or reference [RISM18 GitOps Procedure](https://isms.arc.ucl.ac.uk/rism18-gitops_procedure/).
+    validations:
+      required: false
+
+  - id: ISMSChangeCommsPlan
+    type: textarea
+    attributes:
+      label: 7.0 - Communication plan
+      description: >-
+        How will the users be notified of the change or disruption?
+      placeholder: >-
+        Please detail here, or may be a link to communication plan documentation.
+    validations:
+      required: false
+
+  - id: ISMSChangeContingencyPlan
+    type: textarea
+    attributes:
+      label: 8.0 - Contingency/Rollback plans
+      description: >-
+        How will the users be notified of the change/disruption?
+      placeholder: >-
+        Please detail here, or may be a link to contingency or rollback plan documentation, or [RISM18 GitOps Procedure](https://isms.arc.ucl.ac.uk/rism18-gitops_procedure/).
+    validations:
+      required: false
+
+  - id: ISMSChangeAuthorisation
+    type: input
+    attributes:
+      label: 9.0 - Authorisation
+      description: >-
+        Who authorised/propose the change for OMG review? This is most commonly the Environment Owner or ISMS Research Information Governance Lead.
+      placeholder: >-
+        Please detail here, or may be a link to contingency/rollback plan documentation, or [RISM18 GitOps Procedure](https://isms.arc.ucl.ac.uk/rism18-gitops_procedure/).
+    validations:
+      required: false
+
+  - id: ISMSEnvironmentImpact
+    type: textarea
+    attributes:
+      label: Appendix I – Full Environment Definition Control Impact
+      description: >-
+        Describe how the change affects the environment’s risk treatment. **For GitOps-managed environments, provide a link to the environment definition branch for this change, then only complete rows for controls that are no longer fully compliant **.  Delete all rows where the control implementation remains compliant.
+      value: |-
+        |  Control |  Description |  Implementation |  Impact Y/N |  Compliance Y/N |  Action |
+        |  <!—Guidance row, delete this row once the table is completed -> |  <!— - -> |  <!— - ->  | <!-- Y or N -->  |  <!-- Y or N -->  |  <!-- Detail actions to be taken, e.g. Control adjustment, mitigation or workaround, training to educate staff on new risks or procedural changes, monitoring or audit actions to verify control effectiveness, incident / non-compliance management to be followed, etc. --> |
+        |  5.9 Inventory of information and other associated assets |  An inventory of information and other associated assets, including owners, should be developed and maintained. |  Research Data ISMS document store is the top-level information asset register. Info gov portal holds information asset registers for each Study / Project. Each Environment defines where it maintains a register of physical and virtual technology assets and this is documented in the Environment Definition. |   |   |   |
+        |  5.10 Acceptable use of information and other associated assets |  Rules for the acceptable use and procedures for handling information and other associated assets should be identified, documented and implemented. |  All users of a TRE agree to an Approved Researcher Agreement. Study Owners similarly sign the Study Agreement. Both documents establish the rules for the acceptable use and procedures for users handling of information and other assets. Copies of the agreements are available in ISMS document store. Privileged users are subject to local procedures detailed in the Environment Definition. |   |   |   |
+        |  5.14 Information transfer |  Information transfer rules, procedures, or agreements should be in place for all types of transfer facilities within the organization and between the organization and other parties. |  ISMS Ingress and Egress of data to/from an Environment is controlled through technical controls and processes detailed in the Environment Definition. Only users assigned specific roles can ingress/egress data to/from an Environment. |   |   |   |
+        |  5.17 Authentication information |  Allocation and management of authentication information should be controlled by a management process, including advising personnel on the appropriate handling of authentication information. |  UCL Information Security Policy. UCL Password Policy. [RISM03 Access Control Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM03-Access_Control_Policy.md), [RISM14 Approved Researcher Agreement requires safe handling of authentication information](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/Agreement_Templates/RISM14-Approved_Researcher_Agreement.md). Specific implementation of handling authentication information detailed in the environment definition. |   |   |   |
+        |  5.18 Access rights |  Access rights to information and other associated assets should be provisioned, reviewed, modified and removed in accordance with the organization’s topic-specific policy on and rules for access control. |  [RISM03 Access Control Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM03-Access_Control_Policy.md).  Environment Definition details standard operating procedures for joiners, movers and leavers. |   |   |   |
+        |  5.22 Monitoring, review and change management of supplier services |  The organization should regularly monitor, review, evaluate and manage change in supplier information security practices and service delivery |  The Environment Owner is responsible for monitoring the performance of suppliers. Environment Definition details Environment-specific monitoring of supplier performance. |   |   |   |
+        |  5.29 Information security during disruption |  The organization should plan how to maintain information security at an appropriate level during disruption. |  Maintenance of Confidentiality is the priority during any incident and security controls shall remain unchanged during any availability incident or disruption. All technical environments have a continuity plan and restore procedure. Environment Definition details Business Continuity Plan. |   |   |   |
+        |  5.30 ICT readiness for business continuity |  ICT readiness should be planned, implemented, maintained and tested based on business continuity objectives and ICT continuity requirements. |  UCL follows [emergency planning procedures](https://www.ucl.ac.uk/safety-services/emergency-planning). Environment Definition details Business Continuity Plan. |   |   |   |
+        |  5.37 Documented operating procedures |  Operating procedures for information processing facilities should be documented and made available to personnel who need them. |  The ISMS document store holds procedures concerning the operation of the ISMS Operating procedures for specific Environments are detailed in the Environment Definition. |   |   |   |
+        |  7.1 Physical security perimeters |  Security perimeters should be defined and used to protect areas that contain information and other associated assets. |  For Environments that are hosted on public cloud platforms, physical security perimeters to protect areas that contain information or other associated assets are the responsibility of the Cloud Service Providers, as per the shared responsibility model. Physical and environmental controls, such as security controls concerning physical data centres, physical networks, and physical hosts are inherited from the Cloud Service Providers ISO 27001 certification. Environments that are part or fully hosted at UCL are managed by ISD Data Centre Services in line with [Data Centre as a Service](https://www.ucl.ac.uk/isd/support-staff/dcaas-data-centre-service).  Physical security perimeters are specified, if relevant,  in their corresponding Environment Definition. |   |   |   |
+        |  7.2 Physical entry |  Secure areas should be protected by appropriate entry controls and access points. |  For Environments that are hosted on public cloud platforms, physical security perimeters to protect areas that contain information or other associated assets are the responsibility of the Cloud Service Providers, as per the shared responsibility model. Physical and environmental controls, such as security controls concerning physical data centres, physical networks, and physical hosts are inherited from the Cloud Service Providers ISO 27001 certification. Environments that are part or fully hosted at UCL are managed by ISD Data Centre Services in line with [Data Centre as a Service](https://www.ucl.ac.uk/isd/support-staff/dcaas-data-centre-service).  Physical security perimeters are specified, if relevant, in their corresponding Environment Definition. |   |   |   |
+        |  7.3 Securing offices, rooms and facilities |  Physical security for offices, rooms and facilities should be designed and implemented. |  For Environments that are hosted on public cloud platforms, physical security perimeters to protect areas that contain information or other associated assets are the responsibility of the Cloud Service Providers, as per the shared responsibility model. Physical and environmental controls, such as security controls concerning physical data centres, physical networks, and physical hosts are inherited from the Cloud Service Providers ISO 27001 certification. Environments that are part or fully hosted at UCL are managed by ISD Data Centre Services in line with [Data Centre as a Service](https://www.ucl.ac.uk/isd/support-staff/dcaas-data-centre-service).  Physical security perimeters are specified, if relevant,  in their corresponding Environment Definition. Security of individuals working environment is part of [RISM14 Approved Researcher Agreement](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/Agreement_Templates/RISM14-Approved_Researcher_Agreement.md) |   |   |   |
+        |  7.6 Working in secure areas |  Security measures for working in secure areas should be designed and implemented. |  For Environments that are hosted on public cloud platforms, physical security perimeters to protect areas that contain information or other associated assets are the responsibility of the Cloud Service Providers, as per the shared responsibility model. Physical and environmental controls, such as security controls concerning physical data centres, physical networks, and physical hosts are inherited from the Cloud Service Providers ISO 27001 certification. Environments that are part or fully hosted at UCL are managed by ISD Data Centre Services in line with [Data Centre as a Service](https://www.ucl.ac.uk/isd/support-staff/dcaas-data-centre-service).  Physical security perimeters are specified, if relevant,  in their corresponding Environment Definition. Security of individuals working environment is part of the Approved Researcher Agreement. |   |   |   |
+        |  7.8 Equipment siting and protection |  Equipment should be sited securely and protected. |  UCL Data Centres maintained by ISD Data Centre Services, Network Platforms, Cloud Platforms and EMP. DCs have multiple redundant power supplies and fire suppressant technologies. For Environments that are hosted on public cloud platforms, equipment siting and protection controls are the responsibility of the Cloud Service Providers, as per their responsibility models. Physical and environmental controls, such as security controls concerning physical data centres, physical networks, and physical hosts are inherited from the Cloud Service Providers ISO 27001 certification. Specific Environments equipment siting and protection controls are specified, if relevant,  in their corresponding Environment Definition. |   |   |   |
+        |  7.11 Supporting utilities |  Information processing facilities should be protected from power failures and other disruptions caused by failures in supporting utilities. |  UCL Data Centres maintained by ISD Data Centre Services. UPS and backup generators in place Protection of information processing facilities from power failures or supporting utility failures are the responsibility of UCLs Cloud Service Providers as per their responsibility models. Physical and environmental controls, such as security controls concerning physical data centres, physical networks, and physical hosts are inherited from the Cloud Service Providers ISO 27001 certification. Specific Environments redundancy and resilience controls are specified, if relevant,  in their corresponding Environment Definition. |   |   |   |
+        |  7.12 Cabling security |  Cables carrying power, data or supporting information services should be protected from interception, interference or damage. |  UCL Data Centres maintained by ISD Data Centre Services. Protection of information processing facilities from power failures or supporting utility failures are the responsibility of UCLs Cloud Service Providers as per their responsibility models. Physical and environmental controls, such as security controls concerning physical data centres, physical networks, and physical hosts are inherited from the Cloud Service Providers ISO 27001 certification. Specific Environments redundancy and resilience controls are specified, if relevant,  in their corresponding Environment Definition. |   |   |   |
+        |  7.13 Equipment maintenance |  Equipment should be maintained correctly to ensure availability, integrity and confidentiality of information. |  UCL Data Centres and physical devices maintained by UCL ISD DCS and CP. Relevant maintenance agreements and warranties in place with hardware suppliers. Equipment regularly checked through alerts and logs. For cloud-hosted environments, maintenance of information processing facilities are the responsibility of UCLs Cloud Service Providers as per their responsibility models. Physical and environmental controls, such as security controls concerning physical data centres, physical networks, and physical hosts are inherited from the Cloud Service Providers ISO 27001 certification. Equipment maintenance information is outlined for each Technical Environment in its Environment Definition. |   |   |   |
+        |  8.2 Privileged access rights |  The allocation and use of privileged access rights should be restricted and managed. |  The allocation and use of privileged access rights is covered in [RISM03 Access Control Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM03-Access_Control_Policy.md). Implementation of this policy is detailed in Environment Definition. |   |   |   |
+        |  8.3 Information access restriction |  Access to information and other associated assets should be restricted in accordance with the established topic-specific policy on access control. |  As detailed in [RISM03 Access Control Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM03-Access_Control_Policy.md). Specific implementation of study/project separation detailed in the Environment Definition. |   |   |   |
+        |  8.4 Access to source code |  Read and write access to source code, development tools and software libraries should be appropriately managed. |  This is contained in the Environment Definition. |   |   |   |
+        |  8.5 Secure authentication |  Secure authentication technologies and procedures should be implemented based on information access restrictions and the topic-specific policy on access control. |  All Environments follow [RISM03 Access Control Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM03-Access_Control_Policy.md). Specific implementation of study/project separation detailed in the Environment Definition. |   |   |   |
+        |  8.6 Capacity management |  The use of resources should be monitored and adjusted in line with current and expected capacity requirements. |  Capacity management is the responsibility of the environment owner. Funding for additional resources is allocated through the Change & Digital Committee Information processing facilities capacity monitoring and management are detailed in the Environment Definition. |   |   |   |
+        |  8.7 Protection against malware |  Protection against malware should be implemented and supported by appropriate user awareness. |  All data scanned during ingress process for all TREs. All users are approved researchers that have appropriate and valid training. External access controlled by firewall. Additional controls implemented as detailed in the Environment Definition. |   |   |   |
+        |  8.8 Management of technical vulnerabilities |  Information about technical vulnerabilities of information systems in use should be obtained, the organization’s exposure to such vulnerabilities should be evaluated and appropriate measures should be taken. |  Environments are penetration tested at least annually. Environments are automatically scanned for vulnerabilities. Additional controls are implemented as detailed in the Environment Definition. |   |   |   |
+        |  8.9 Configuration management |  Configurations, including security configurations, of hardware, software, services and networks should be established, documented, implemented, monitored and reviewed. |  The Environment Definition holds details of the overall design and configuration. All configuration of the environments is controlled through [RISM08 Change Management Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM08-Change_Management_Policy.md) |   |   |   |
+        |  8.12 Data leakage prevention |  Data leakage prevention measures should be applied to systems, networks and any other devices that process, store or transmit sensitive information. |  All environments have network isolation with limited inbound and blocked outbound access. Copy and paste out is disabled and egress is limited by role, process and technical controls. Additional controls implemented as detailed in the Environment Definition. |   |   |   |
+        |  8.13 Information backup |  Backup copies of information, software and systems should be maintained and regularly tested in accordance with the agreed topic-specific policy on backup. |  As detailed in [RISM09 Backup and Restore Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM09-Backup_and_Restore_Policy.md). Specific technical implementation as detailed in the Environment Definition. |   |   |   |
+        |  8.14 Redundancy of information processing facilities |  Information processing facilities should be implemented with redundancy sufficient to meet availability requirements. |  All environments have an availability rating as defined in the environment definition document. High availability environments have redundant information processing facilities. High availability environments at UCL are spread across multiple storage, RAID, Multiple NICS, power supplies, virtualised environment across multiple blades, UPS and generator backups. Infrastructure is hosted in two geographically dispersed data centres. In the event that one data centre is unreachable, the service can continue running albeit at reduced capacity. High availability environments in public cloud are hosted in multiple availability zones, different physical locations, . |   |   |   |
+        |  8.15 Logging |  Logs that record activities, exceptions, faults and other relevant events should be produced, stored, protected and analysed. |  Logs are enabled for activities in the environments. These logs are ingested into SIEM where possible. Detail on logging events are documented in the environment definition. |   |   |   |
+        |  8.16 Monitoring activities |  Networks, systems and applications should be monitored for anomalous behaviour and appropriate actions taken to evaluate potential information security incidents. |  [ISMS Logging and Monitoring Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM17-Logging_and_Monitoring_Policy.md). Logs are enabled for activities in the environments these logs are ingested into SIEM where possible. Details on monitoring events are documented in the environment definition. |   |   |   |
+        |  8.18 Use of privileged utility programs |  The use of utility programs that can be capable of overriding system and application controls should be restricted and tightly controlled. |  Privileged access control implemented in line with [RISM03 Access Control Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM03-Access_Control_Policy.md) . Assignment of privileged access managed by environment process. Detail on privileged access control of components defined the environment definition. |   |   |   |
+        |  8.20 Networks security |  Networks and network devices should be secured, managed and controlled to protect information in systems and applications. |  All networks have intrusion detection and prevention. Network configurations are documented and managed through change control. Network and connectivity for environment described in environment definition along with specific technical controls. |   |   |   |
+        |  8.21 Security of network services |  Security mechanisms, service levels and service requirements of network services should be identified, implemented and monitored. |  Responsibility for security of network services is assigned as per the shared responsibility model published in [RISM02 Roles and Responsibilities](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM02-Roles_and_Responsibilities.md). Access and authentication controls to network attached resources as per [RISM03 Access Control Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM03-Access_Control_Policy.md). Network traffic encryption as per [RISM10-Cryptography Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM10-Cryptography_Policy.md). Network changes done under change control as per [RISM08 Change Management Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM08-Change_Management_Policy.md). Environment specific network segregation and other methods and controls detailed in the Environment Definition. |   |   |   |
+        |  8.22 Segregation of networks |  Groups of information services, users and information systems should be segregated in the organization’s networks. |  Responsibility for security of network services is assigned as per the shared responsibility model published in [RISM02 Roles and Responsibilities]( https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM02-Roles_and_Responsibilities.md). Access and authentication controls to network attached resources as per [RISM03 Access Control Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM03-Access_Control_Policy.md). Network traffic encryption as per [RISM10-Cryptography Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM10-Cryptography_Policy.md). Network changes done under change control as per [RISM08 Change Management Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM08-Change_Management_Policy.md). Environment specific network segregation and other methods and controls detailed in the Environment Definition. |   |   |   |
+        |  8.31 Separation of development, test and production environments |  Development, testing and production environments should be separated and secured. |  All virtualised environments provide the ability to stage development and test environments within the environments. Cloud hosted environments have multiple environments for development and testing. No data is shared between these environments. The number and purpose of these environments is documented in the environment definition. Where common architecture components are shared, such as core network components,  there is limited availability of testing environments and change control is relied on with robust roll back plans on any failure. All changes are completed in line with [RISM08 Change Management Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM08-Change_Management_Policy.md) |   |   |   |
+    validations:
+      required: false
+
+  - id: ISMSAdditionalImpact
+    type: textarea
+    attributes:
+      label: Core ISMS Environment Control Impact
+      description: >-
+        Describe how the change affects the following core ISMS controls.  Delete all rows where the control implementation remains compliant.
+      value: |-
+        | Control | Description | Implementation | Impact Y/N | Compliance Y/N | Action |
+        | <!-- Guidance row, delete this row once the table is completed --> | <!-- - --> | <!-- - --> | <!-- Y or N --> | <!-- Y or N --> | <!-- Detail actions to be taken, e.g., Control adjustment, mitigation or workaround, training to educate staff on new risks or procedural changes, monitoring or audit actions to verify control effectiveness, incident/non-compliance management to be followed, etc. --> |
+        | 5.2 Information security roles and responsibilities | Information security roles and responsibilities should be defined and allocated according to the organization needs. | As detailed in [RISM02 Roles and Responsibilities](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM02-Roles_and_Responsibilities.md) |  |  |  |
+        | 5.15 Access control | Rules to control physical and logical access to information and other associated assets should be established and implemented based on business and information security requirements. | As detailed in [RISM03 Access Control Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM03-Access_Control_Policy.md) |   |   |   |
+        | 7.10 Storage media | Storage media should be managed through their life cycle of acquisition, use, transportation and disposal in accordance with the organization’s classification scheme and handling requirements. | We do not allow data to be copied to removable media within the scope of the ISMS. Disposal of media is carried out in line with the Data Deletion Policy. The disk support contract includes retention of defective media. |   |   |   |
+        | 8.1 User endpoint devices | Information stored on, processed by, or accessible via user endpoint devices should be protected. | In-scope data is held on central servers and cannot be downloaded or cached on endpoint devices. |   |   |   |
+        | 8.17 Clock synchronization | The clocks of information processing systems used by the organization should be synchronized to approved time sources. | UCL-hosted environments maintain clock synchronization to UCL network time using NTP. Cloud-hosted platforms use cloud-provided synchronization, e.g., [AWS EC2 NTP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html) |   |   |   |
+        | 8.23 Web filtering | Access to external websites should be managed to reduce exposure to malicious content. | Access from environments to external websites is limited. Access is opened following a risk assessment and change control. Where access is allowed, it is done through a whitelist to allow specific public websites or endpoints. |   |   |   |
+        | 8.24 Use of cryptography | Rules for the effective use of cryptography, including cryptographic key management, should be defined and implemented. | Cryptography implemented for all environments in line with [RISM10-Cryptography Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM10-Cryptography_Policy.md). |   |   |   |
+        | 8.25 Secure development life cycle | Rules for the secure development of software and systems should be established and applied. | No software can be installed on any shared compute resource by non-privileged users. Where software can be installed by project users, the target system is network-isolated. Project users must ensure software and data can be legally used as per [RISM07 Research Data ISMS Information Security Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM07-Research_Data_ISMS_Information_Security_Policy.md). Shared or system-plane software is installed by privileged users and subject to change control, including risk assessment and peer review. Supplier agreements at UCL are subject to procurement requirements, including DPIA, due diligence check, and minimum security standards. In-scope cloud suppliers must meet security requirements per the shared responsibility model. |   |   |   |
+        | 8.26 Application security requirements, 8.27 Secure system architecture and engineering principles, 8.28 Secure coding | Information security requirements should be identified, specified, and approved when developing or acquiring applications. Principles for engineering secure systems should be established, documented, maintained, and applied to any information system development activities. Secure coding principles should be applied to software development. | All software development follows OWASP secure coding practices. External validation of secure coding is provided via pen-test. Software releases are completed according to [RISM08 Change Management Policy](https://github.com/UCL-ARC/research-data-isms/blob/main/docs/Controlled_Documents/RISM08-Change_Management_Policy.md). Software written by researchers for their own research data is out of scope of this control. |   |   |   |
+    validations:
+      required: false
